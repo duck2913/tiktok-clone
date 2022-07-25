@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Navbar />
-			<div className="flex gap-6 md:gap-20">
+			<div className="flex gap-3 md:gap-20">
 				<div className="h-[92vh] overflow-hidden xl:hover:overflow-auto">
 					<Sidebar />
 				</div>
