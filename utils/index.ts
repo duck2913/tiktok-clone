@@ -18,6 +18,6 @@ export const createOrGetUser = async (response: any, addUser?: any) => {
 		image: picture,
 	};
 
-	addUser(user);
+	addUser(user); // add user to store
 	await axios.post(`/api/auth`, user); // create a user in sanity
 };

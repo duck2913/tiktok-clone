@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // import { useRouter } from "next/router";
@@ -8,14 +8,16 @@ import { IoMdAdd } from "react-icons/io";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { createOrGetUser } from "../utils";
 import useAuthStore from "../store/authStore";
-
 import Logo from "../utils/tiktik-logo.png";
+import { IUser } from "../types";
 
 const Navbar = () => {
-	// const userProfile = null;
-	// function addUser(alo: any) { }
-
 	const { userProfile, addUser, removeUser } = useAuthStore();
+	const [myUser, setMyUser] = useState<IUser>(null);
+
+	useEffect(() => {
+		setMyUser(userProfile);
+	}, [userProfile]);
 
 	function handleLogout() {
 		googleLogout();
@@ -30,7 +32,7 @@ const Navbar = () => {
 				</div>
 			</Link>
 			<div>Search</div>
-			{!userProfile ? (
+			{!myUser && (
 				<GoogleLogin
 					onSuccess={(credentialResponse) => {
 						createOrGetUser(credentialResponse, addUser);
@@ -39,7 +41,8 @@ const Navbar = () => {
 						console.log("Login Failed");
 					}}
 				/>
-			) : (
+			)}
+			{myUser && (
 				<div className="flex items-center gap-10">
 					<button className="flex gap-2 items-center border-2 rounded-md border-gray-300 p-3 py-1 hover:text-pink-700 hover:border-pink-600 transition duration-500">
 						<IoMdAdd />
@@ -48,7 +51,7 @@ const Navbar = () => {
 					<Link href={"/profile"}>
 						<div className="cursor-pointer flex items-center">
 							<Image
-								src={userProfile.image}
+								src={myUser.image}
 								alt="profile"
 								width={30}
 								height={30}
