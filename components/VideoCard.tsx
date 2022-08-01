@@ -9,10 +9,11 @@ interface Props {
 }
 
 const VideoCard = ({ post }: Props) => {
-	console.log("🚀 -> post", post);
 	const videoRef = useRef(null);
+	console.log("🚀 -> videoRef", videoRef);
 
 	useEffect(() => {
+		console.log("what happened");
 		if (videoRef.current.videoHeight < videoRef.current.videoWidth) {
 			videoRef.current.className = "object-cover aspect-auto mx-auto w-full";
 		}
