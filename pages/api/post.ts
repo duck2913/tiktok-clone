@@ -7,5 +7,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		const query = allPostsQuery();
 		const data = await client.fetch(query);
 		res.status(200).json(data);
+	} else {
+		const doc = req.body;
+
+		client.create(doc).then(() => {
+			res.status(200).json("video created");
+		});
 	}
 }

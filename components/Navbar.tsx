@@ -25,7 +25,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className="w-full flex items-center justify-between border-b border-gray-300 py-2 px-4">
+		<div className="w-full flex items-center justify-between border-b border-gray-300 py-2 px-6">
 			<Link href={"/"}>
 				<div className="w-[100px]">
 					<Image src={Logo} layout="responsive" alt="logo" className="cursor-pointer " />
@@ -43,11 +43,13 @@ const Navbar = () => {
 				/>
 			)}
 			{myUser && (
-				<div className="flex items-center gap-10">
-					<button className="flex gap-2 items-center border-2 rounded-md border-gray-300 p-3 py-1 hover:text-pink-700 hover:border-pink-600 transition duration-500">
-						<IoMdAdd />
-						Upload
-					</button>
+				<div className="flex items-center gap-6">
+					<Link href={"/upload"} passHref>
+						<button className="flex gap-2 items-center border-2 rounded-md border-gray-300 p-3 py-1 hover:text-rose-600 hover:border-rose-600 transition duration-500">
+							<IoMdAdd />
+							Upload
+						</button>
+					</Link>
 					<Link href={"/profile"}>
 						<div className="cursor-pointer flex items-center">
 							<Image

@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<Navbar />
-			<div className="flex gap-3 md:gap-20">
+			<div className="flex gap-3 md:gap-20 px-1 pr-3 font-base">
 				<div className="h-[92vh] overflow-hidden xl:hover:overflow-auto">
 					<Sidebar />
 				</div>

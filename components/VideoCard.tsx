@@ -13,9 +13,8 @@ const VideoCard = ({ post }: Props) => {
 	console.log("🚀 -> videoRef", videoRef);
 
 	useEffect(() => {
-		console.log("what happened");
 		if (videoRef.current.videoHeight < videoRef.current.videoWidth) {
-			videoRef.current.className = "object-cover aspect-auto mx-auto w-full";
+			videoRef.current.className = "object-cover w-full";
 		}
 	}, []);
 

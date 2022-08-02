@@ -11,7 +11,7 @@ const Sidebar: NextPage = () => {
 	const { pathname } = useRouter();
 
 	const activeLink =
-		"flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
+		"flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-rose-600 rounded";
 
 	const normalLink =
 		"flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
@@ -40,7 +40,7 @@ const Sidebar: NextPage = () => {
 						<button
 							onClick={renderProps.onClick}
 							disabled={renderProps.disabled}
-							className="w-full border border-pink-600 mt-3 py-1 rounded cursor-pointer hover:bg-pink-600 hover:text-white text-pink-600 transition-all font-semibold"
+							className="w-full border border-rose-600 mt-3 py-1 rounded cursor-pointer hover:bg-rose-600 hover:text-white text-rose-600 transition-all font-semibold"
 						>
 							Login
 						</button>
